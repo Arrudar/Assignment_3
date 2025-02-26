@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StarterApp</title>
+    <title>Welcome to Pedro's Adventures</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +9,27 @@
     <%= stylesheet_link_tag "application" %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+</head>
+<body>
+  <h1>Places I've Been</h1>
+
+  <ul>
+    <% @places.each do |place| %>
+      <li><%= link_to place.name, place_entries_path(place) %></li>
+    <% end %>
+  </ul>
+
+  <h2>Add a New Place</h2>
+  <%= form_with model: @place, url: create_place_path, local: true do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.submit "Add Place" %>
+    </div>
+  <% end %>
+
+</body>
 </html>
