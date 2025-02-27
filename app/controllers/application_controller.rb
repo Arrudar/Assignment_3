@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   
-# Ensure @places is available 
+# debug places (@places to be available)
 before_action :set_places
 
 def index

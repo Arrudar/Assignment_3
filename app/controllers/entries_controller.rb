@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
 
   def index
-    @place = Place.find(params[:place_id]) # Find the place 
+    @place = Place.find(params[:place_id]) # Find place 
     @entries = @place.entries             # Put all entries for the place
     @entry = Entry.new                    # Create new entrentries (using a form)
   end
@@ -10,10 +10,10 @@ class EntriesController < ApplicationController
     @place = Place.find(params[:place_id])
     @entry = @place.entries.build(entry_params)
     if @entry.save
-      redirect_to place_entries_path(@place), notice: "Your entry was added successfully, OK!?"
+      redirect_to place_entries_path(@place), notice: "Your entry was added successfully, IhuuuUU!?"
     else
-      @entries = @place.entries # Reload entries if validation fails
-      flash.now[:alert] = "I am terribly sorry I failed to add entry. Could you please try it again??"
+      @entries = @place.entries # Reload entries in case it fails
+      flash.now[:alert] = "Oh! I failed to add entry. Could you please try again sir??"
       render :index
     end
   end
