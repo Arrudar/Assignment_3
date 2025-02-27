@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # get("/", { :controller => "articles", :action => "index" })
 
-  root "application#index" # Main page shows list of places
+  # Root route for the main page (list of places)
+  root "places#index"
 
-  post "/create_place", to: "application#create_place", as: "create_place" # Route for creating places
-
-  resources :places do
+  # Resources for places and nested entries
+  resources :places, only: [:index, :create] do
     resources :entries, only: [:index, :create]
   end
 

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Clear existing data (optional)
+# Clear existing data
 Place.destroy_all
 
 # Create Places

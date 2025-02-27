@@ -6,14 +6,14 @@
   <% end %>
 </ul>
 
-<h2>Add a New Place</h2>
-<%= form_with model: @place, url: create_place_path, local: true do |f| %>
+<h2>Ulala!! Someone has something new to add here?</h2>
+<%= form_with model: @place, local: true do |f| %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <div>
-    <%= f.submit "Add Place" %>
+    <%= f.submit "Add your new place master!" %>
   </div>
 <% end %>

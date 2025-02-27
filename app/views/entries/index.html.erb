@@ -1,0 +1,39 @@
+<h1> Here are the entries for your trip to <%= @place.name %></h1>
+
+<ul>
+  <% @entries.each do |entry| %>
+    <li>
+      <h3><%= entry.title %></h3>
+      <p><%= entry.description %></p>
+      <p><%= entry.date %></p>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Add a New Entry</h2>
+<%= form_with model: [@place, @entry], local: true do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div>
+    <%= f.submit "Add a new entry to your jornal Mr. Traveller!" %>
+  </div>
+
+  <!-- Add the Return to Main Menu button -->
+  <div style="margin-top: 20px;">
+    <%= link_to "Return to main menu", root_path, class: "button", style: "background-color: #007bff; color: white; padding: 10px; text-decoration: none; border-radius: 5px;" %>
+  </div>
+
+<% end %>
